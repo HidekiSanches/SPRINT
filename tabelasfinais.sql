@@ -19,7 +19,8 @@ constraint chkGenero check (Genero in ('Masculino','Feminino')),
 Peso FLOAT,
 Altura DOUBLE,
 Diagnostico varchar (40),
-Convenio varchar(40)
+Convenio varchar(40),
+constraint chkPlano check (Plano in ('Bradesco', 'UNIMED', 'Amil', 'Notre Dame'))
 );
 
 -- Inserir dados na tabela

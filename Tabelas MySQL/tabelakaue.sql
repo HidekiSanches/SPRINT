@@ -6,7 +6,7 @@ CREATE DATABASE sprint1;
 
 USE sprint1;
 
--- Criar tabela Paciente
+-- Criar tabela Paciente, alteração na linha 13
 
 CREATE TABLE Paciente (
 idPaciente int primary key auto_increment,
@@ -49,7 +49,7 @@ INSERT INTO Paciente (CPF_RNE, Nome, Email , DtNasc, Genero, Peso, Altura, Diagn
  
  SELECT * FROM Temperatura;
  
- -- Criar tabela Medico
+ -- Criar tabela Medico, alteração na linha 56
  
  CREATE TABLE Medico (
  idMedico int primary key auto_increment,
