@@ -68,3 +68,18 @@ INSERT INTO Medico (CPF, Nome, Email, Funcao) VALUES
 
 -- Selecionar tabela Medico
 SELECT * FROM Medico;
+
+ CREATE TABLE Cliente (
+ idCliente int primary key auto_increment,
+ CNPJ char(14),
+ Nome varchar (120),
+ Email varchar (120),
+);
+ 
+ -- Inserindo dados na tabela
+ 
+INSERT INTO Medico (CNPJ, Nome, Email) VALUES
+	(12345678987654,'Rogerio Santos','Rogerio.santos@outlook.com',);
+
+-- Selecionar tabela Medico
+SELECT * FROM Medico;
