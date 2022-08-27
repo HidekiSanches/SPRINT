@@ -18,14 +18,15 @@ Genero varchar(40),
 constraint chkGenero check (Genero in ('Masculino','Feminino')),
 Peso FLOAT,
 Altura DOUBLE,
+Sintomas varchar(160)
 Diagnostico varchar (40),
 Convenio varchar(40)
 );
 
 -- Inserir dados na tabela
 
-INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Diagnostico, Convenio) VALUES
- (48867849345, 'Paulo', '.com', '2002-10-10', 'Masculino', 80, 1.75, 'Pneumonia', 'UNIMED');
+INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas, Diagnostico, Convenio) VALUES
+ (48867849345, 'Paulo', '.com', '2002-10-10', 'Masculino', 80, 1.75,'Calafrio, Dor de cabeça e Fadiga', 'Pneumonia', 'UNIMED');
  
  -- Selecionar tabela
  
