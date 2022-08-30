@@ -18,6 +18,7 @@
         <p>Inserir o custo anual do hospital: <input type="text" id="ipt_renda" placeholder="Inserir aqui..."></p>
         <p>Inserir a quantidade de consultas diarias: <input type="text" id="ipt_consulta" placeholder="Inserir aqui..."></p>
         <p>Inserir o valor das consultas: <input type="text" id="ipt_valor" placeholder="Inseir aqui..."></p>
+        <p>Inserir quantos anos você pretende usar o TermoTech: <input type="text" id="ipt_tempo" placeholder="Inserir aqui..."></p>
         <button onclick="mostrar()">Calcular renda</button>
         <div id="div_msg"></div>
 
@@ -28,16 +29,16 @@
 <script>
     //Calculo dos dados inseridos
     //Calculo de quanto você economizaria com o nosso produto e quanto ganharia usando ele
-    var ax_tempo = 0;
     var ax_conta = 0;
     var ax_total = 0;
     var ax_economia = 0;
+    var ax_tempo = 0;
     function mostrar() {
-        ax_tempo = (0.5 * 15)
-        ax_conta = (ax_tempo * Number(ipt_consulta.value))
-        ax_total = (((ax_conta * Number(ipt_valor.value))*30)*12)
-        ax_economia = (4138*12)
-        div_msg.innerHTML = `Com o nosso projeto o seu hospital com o custo anual de R$${ipt_renda.value} economizara R$${ax_economia.toFixed(2)} por ano e tera um aumento do seu lucro anual de R$${ax_total.toFixed(2)}.`
+        ax_conta = (2 * Number(ipt_consulta.value))
+        ax_total = ((((ax_conta * Number(ipt_valor.value))*30)*12))
+        ax_economia = (4138 * 12)
+        ax_tempo = (ax_total*Number(ipt_tempo.value))
+        div_msg.innerHTML = `Com o nosso projeto o seu hospital com o custo anual de R$${ipt_renda.value} economizara R$${ax_economia.toFixed(2)} por ano, tera um aumento do seu lucro anual de R$${ax_total.toFixed(2)} e em R$${ipt_tempo.value} ano(s) terá um lucro ${ax_tempo.toFixed(2)}.`
     }
 
 </script>
