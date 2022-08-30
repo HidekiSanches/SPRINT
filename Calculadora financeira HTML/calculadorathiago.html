@@ -35,7 +35,7 @@
     function mostrar() {
         ax_tempo = (0.5 * 15)
         ax_conta = (ax_tempo * Number(ipt_consulta.value))
-        ax_total = (((ax_conta * Number(ipt_valor.value))*12))
+        ax_total = (((ax_conta * Number(ipt_valor.value))*30)*12)
         ax_economia = (4138*12)
         div_msg.innerHTML = `Com o nosso projeto o seu hospital com o custo anual de R$${ipt_renda.value} economizara R$${ax_economia.toFixed(2)} por ano e tera um aumento do seu lucro anual de R$${ax_total.toFixed(2)}.`
     }
