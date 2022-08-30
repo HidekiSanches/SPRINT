@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira</title>
+</head>
+<style>
+
+</style>
+<body>
+    <!--Inserção dos dados na calculadora-->
+    <!--Pedir a renda anual, a quantidade de consultas feitas e o valor dessas consultas para calcular o
+    quanto o hospital vai economizar e quanto ele vai ganhar com a aquisição do nosso projeto.-->
+    <div>
+        <h1>Calculadora financeira</h1>
+        <p>Inserir o custo anual do hospital: <input type="text" id="ipt_renda" placeholder="Inserir aqui..."></p>
+        <p>Inserir a quantidade de consultas diarias: <input type="text" id="ipt_consulta" placeholder="Inserir aqui..."></p>
+        <p>Inserir o valor das consultas: <input type="text" id="ipt_valor" placeholder="Inseir aqui..."></p>
+        <button onclick="mostrar()">Calcular renda</button>
+        <div id="div_msg"></div>
+
+    </div>
+    
+</body>
+</html>
+<script>
+    //Calculo dos dados inseridos
+    //Calculo de quanto você economizaria com o nosso produto e quanto ganharia usando ele
+    var ax_tempo = 0;
+    var ax_conta = 0;
+    var ax_total = 0;
+    var ax_economia = 0;
+    function mostrar() {
+        ax_tempo = (0.5 * 15)
+        ax_conta = (ax_tempo * Number(ipt_consulta.value))
+        ax_total = (((ax_conta * Number(ipt_valor.value))*12))
+        ax_economia = (4138*12)
+        div_msg.innerHTML = `Com o nosso projeto o seu hospital com o custo anual de R$${ipt_renda.value} economizara R$${ax_economia.toFixed(2)} por ano e tera um aumento do seu lucro anual de R$${ax_total.toFixed(2)}.`
+    }
+
+</script>
