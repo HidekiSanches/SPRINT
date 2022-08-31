@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+
+<body>
+    <h1>Simulador Financeiro</h1>
+    <br>
+    <p>Média de consultas por dia: <input type="text" id="consultas" placeholder="Insira aqui..."></p>
+
+    <p>Valor em média por consulta: <input type="text" id="valor_consulta" placeholder="Insira aqui..."></p>
+
+    <p>Tempo médio por consulta: <input type="text" id="tempo_consulta" placeholder="Insira aqui..."></p>
+
+    <p>Quantidade de médicos atendendo por dia: <input type="text" id="medico" placeholder="Insira aqui..."></p>
+
+    <p>Quantidade de auxiliares de enfermagem: <input type="text" id="auxiliar" placeholder="Insira aqui..."></p>
+
+    <p>Média assalarial de um auxiliar por mês: <input type="text" id="salario" placeholder="Insira aqui..."></p>
+
+    <p>Quantos anos deseja estar com a SIT?: <input type="text" id="anos" placeholder="Insira aqui..."></p>
+
+
+    <button onclick="ganho()">Simule aqui!!!</button> 
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function ganho() {
+
+        // TEMPO SEM O PROJETO 
+        var tempo = consultas.value * tempo_consulta.value;
+        // TEMPO COM O PROJETO - COM RESULTADO DE CONSULTAS
+        var consulta = tempo / (tempo_consulta.value * 0.60);
+        // PERCENTUAL
+        var perc_tem_consul = ((consulta - consultas.value) / consultas.value) * 100;
+
+        // VALOR SEM O PROJETO
+        var valor_normal = valor_consulta.value * consultas.value * medico.value;
+        // VALOR COM O PROJETO 
+        var valor = valor_consulta.value * consulta * medico.value;
+        // PERCENTUAL
+        var perc_consulta = ((valor - valor_normal) / valor_normal) * 100;
+
+        // SALÁRIO AUXILIAR SEM O PROJETO 
+        var aux_salario = salario.value * auxiliar.value;
+        // SALÁRIO AUXILIAR COM O PROJETO 
+        var aux_total = salario.value * 0.85;
+        // GANHO EM CIMA DO SALARIO AUX
+        var ganho = aux_salario - aux_total;
+
+        // TOTAL DO LUCRO ANO
+        var year = anos.value * 365;
+        var totalzao = (valor + ganho) * year;
+
+        // TOTAL SEM O PROJETO
+        var totalzinho = valor_normal + aux_salario * year;
+
+        // PERCENTUAL POR ANO
+        var perc_totalzao = ((totalzao - totalzinho) / totalzinho) * 100;
+        
+        
+
+        resultado.innerHTML = `<br>Com a TermoTech você ganhara mais ${consulta.toFixed(0)} (${perc_tem_consul.toFixed(1)}%) consultas diariamente, contudo lucrará um total de R$${totalzao.toFixed(2)} (${perc_totalzao.toFixed(1)}%) num tempo de ${anos.value} ano conosco, sendo que estará evitando possiveis processos jurídicos por danos morais que podem custear até R$1.000.000 de reais. Não perca tempo venha com a TermoTech`
+
+    }
+
+</script>
