@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <h1>Calculadora Financeira</h1>
+    <!--Input's-->
+    <label for=" tempo_consulta">Quanto Tempo Dura a Consulta? <b>(Em minutos)</b></label><br>
+    <input type="text" id="ipt_tempo_consulta" name=" tempo_consulta" placeholder="10" autofocus><br>
+    <label for="custo_consulta">Quanto Custa sua Consulta? <b>(Apenas Números)</b></label><br>
+    <input type="text" id="ipt_custo_consulta" name="custo_consulta" placeholder="150"><br>
+    <label for="qtd_consulta">Quantas Consultas Você Faz Por Dia?</label><br>
+    <input type="text" id="ipt_qtd_consulta" name="qtd_consulta" placeholder="8">
+
+    <br>
+    <button onclick="result()">Calcular Otimização</button><br>
+    <span id="msg"></span>
+
+</body>
+</html>
+<script>
+    function result(){
+        var tempo_bruto = 0
+        var media_consulta_termo = 0
+        var consulta_mes = 0
+        var consulta_mes_termotech = 0
+        var faturamento_solo= 0 
+        var faturamento_termo = 0
+        var qtd_consulta_termod = 0
+        tempo_bruto = ipt_qtd_consulta.value * ipt_tempo_consulta.value; //tempo de uma consulta comum
+        tempo_consulta_termo = ipt_tempo_consulta.value * 0.85; //tempo de uma consulta utilizando o termotech
+        qtd_consulta_termod= (tempo_bruto/tempo_consulta_termo);
+        consulta_mes = ipt_qtd_consulta.value * 30; // quantidade de consultas feitas em um mes comum
+        consulta_mes_termotech = (tempo_bruto/tempo_consulta_termo)*30; 
+        faturamento_solo = ipt_custo_consulta.value * consulta_mes;
+        faturamento_termo = consulta_mes_termotech * ipt_custo_consulta.value;
+        
+
+        msg.innerHTML = `<i>Consiga Salvar Mais Vidas Com o TermoTech!</i> <br><br>
+        Você reduzirá o tempo das suas consultas de ${ipt_tempo_consulta.value} Minutos para ${tempo_consulta_termo.toFixed(0)} Minutos<br>
+        Em um mês você realiza ${consulta_mes} Consultas. Com o nosso projeto você fará ${consulta_mes_termotech.toFixed(0)} Consultas.<br>
+        Em um Mês você fatura <b>R$${faturamento_solo.toFixed(2)}</b>. Com o nosso projeto <b>você poderá faturar R$${faturamento_termo.toFixed(2)}</b> <br>`;
+    }
+</script>
+
+<!-- O Projeto é contruir uma plataforma de análise e coleta de dados dos pacientes que tem objetivo de não só aumentar a produtividade, mas também
+a rotatividade de pacientes na clínica/hospital. Nós somos especializados em monitorar e coletar dados das temperaturas
+dos pacientes para facilitar e otimizar futuras consultas.-->
