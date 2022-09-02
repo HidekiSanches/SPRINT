@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIT Company</title>
+</head>
+
+<body>
+    <h1>Simulador Financeiro</h1>
+    <br>
+    <p>Média de consultas por dia: <input type="text" id="ipt_consultas" placeholder="Insira aqui..."></p>
+
+    <p>Valor médio em reais (R$) por consulta: <input type="text" id="ipt_valor_consulta" placeholder="Insira aqui..."></p>
+
+    <p>Quantos anos deseja estar com a SIT?: <input type="text" id="ipt_anos" placeholder="Insira aqui..."></p>
+
+
+    <button onclick="ganho()">Simule aqui!!!</button> 
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function ganho() {
+
+        var year = ipt_anos.value * 365;
+
+        var tempo = 15 * ipt_consultas.value 
+
+        var consulta_final = tempo / (15 * 0.80) 
+
+        var valor = ipt_consultas.value * ipt_valor_consulta.value 
+
+        var perc_consulta = ((consulta_final - ipt_consultas.value) / ipt_consultas.value) * 100
+
+        var valor_acresc = consulta_final * ipt_valor_consulta.value 
+
+        var anocomsit = year * valor_acresc
+
+        var anosemsit = year * valor
+
+        
+
+
+        resultado.innerHTML = `<br> <i>Consiga Salvar Mais Vidas Com o TermoTech!</i> <br><br>
+        
+        Com o nosso projeto você fará ${consulta_final .toFixed(2)} consultas no dia, equivalente a <b>${perc_consulta .toFixed(2)}%</b> a mais de consultas.<br>
+        Em um Mês você fatura <b>R$${(30 * valor) .toFixed(2)}</b>. Com o nosso projeto, você poderá faturar <b>R$${(30 * valor_acresc) .toFixed(2)}.</b> <br>
+        Trabalhando junto com a SIT Company por ${ipt_anos.value} ano(s) você deixa de faturar <b>R$${anosemsit .toFixed(2)}</b> e passa a faturar <b>R$${(anocomsit) .toFixed(2)}</b>, com o valor liquído de <b>R$${(anocomsit - anosemsit) .toFixed(2)}</b>.` 
+
+    }
+
+</script> 

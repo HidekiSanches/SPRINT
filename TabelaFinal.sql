@@ -20,7 +20,8 @@ Peso FLOAT,
 Altura DOUBLE,
 Sintomas varchar(160),
 Diagnostico varchar (40),
-Convenio varchar(40)
+Convenio varchar(40),
+constraint chkConvenio check (Convenio in ('Unimed', 'Amil', 'Notredame Intermédica', 'Bradesco', 'Medical Health', 'Amil', 'Prevent Senior', 'SUS', 'Porto Seguro', 'Nenhum'))
 );
 
 -- Inserir dados na tabela
@@ -54,16 +55,17 @@ INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas,
  Temp10min DOUBLE,
  Temp15min DOUBLE,
  Temp20min DOUBLE,
- Temp25min DOUBLE
+ Temp25min DOUBLE,
+ Temp30min DOUBLE
  );
  
- INSERT INTO Temperatura (Temp5min, Temp10min, Temp15min, Temp20min, Temp25min) Values
-		(20.8, 22.5, 25.0, 27.0, 28),
-        (20.5, 22.7, 24.9, 24.0, 23.2),
-        (23.4, 22.5, 23.6, 24.2, 26.3),
-        (25.6, 24.7, 25.3, 23.4, 25.8),
-        (23.7, 23.5, 25.3, 23.4, 24.8);
-        
+ INSERT INTO Temperatura (Temp5min, Temp10min, Temp15min, Temp20min, Temp25min, Temp30min) Values
+		(37.2, 37.2, 37.5, 37.8, 38.3, 38.5),
+        (36.4, 37.0, 37.2, 37.1, 37.2, 37.0),
+        (37.0, 37.3, 37.5, 37.5, 37.5, 37.6),
+        (37.8, 37.9, 37.8, 37.9, 37.7, 37.9),
+        (37.7, 37.7, 37.8, 37.9, 38.0, 38.0),
+        (37.0, 36.5, 35.9, 35.7, 35.5, 35.5);
         
  -- Selecionar tabela  Temperatura
  
@@ -71,8 +73,9 @@ INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas,
  
  -- Criar tabela Medico
  
- CREATE TABLE Medico (
+ CREATE TABLE Funcionario (
  idMedico int primary key auto_increment,
+ CRM char(6),
  CPF char(11),
  Nome varchar (120),
  Email varchar (120),
@@ -83,35 +86,36 @@ INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas,
  
  -- Inserindo dados na tabela
  
-INSERT INTO Medico (CPF, Nome, Email, Funcao) VALUES
-	(49999973939,'Valdemir Santos','valdemir.santos@outlook.com','Enfermeiro'),
-	(46007947025,'Max Medeiros','max.medeiros@outlook.com','Médico'),
-	(15428451068,'Paulo Muzy','Paulo.Muzy@outlook.com','Médico'),
-	(57295394010,'Roberta Silva','roberta.silva@outlook.com','Enfermeira'),
-	(10153655070,'Sara Cristina','sara.cristina@outlook.com','Enfermeira'),
-	(98180520056,'Guilherme Pereira','guilherme.pereira@outlook.com','Enfermeiro'),
-	(85078946071,'Josemar Costa','josemar.costa@outlook.com','Médico'),
-	(28877832037,'Flavia Sobreira','josemar.costa@outlook.com','Médica'),
-	(31578361028,'Matheus Yoshida','matheus.yoshida@outlook.com','Médico'),
-	(13871054003,'Karen Naomy','karen.naomy@outlook.com','Médica');
+INSERT INTO Funcionario (CRM, CPF, Nome, Email, Funcao) VALUES
+	(276131, 49999973939,'Valdemir Santos','valdemir.santos@outlook.com','Enfermeiro'),
+	(312312, 46007947025,'Max Medeiros','max.medeiros@outlook.com','Médico'),
+	(789321, 15428451068,'Paulo Muzy','Paulo.Muzy@outlook.com','Médico'),
+	(313645, 57295394010,'Roberta Silva','roberta.silva@outlook.com','Enfermeira'),
+	(764533, 10153655070,'Sara Cristina','sara.cristina@outlook.com','Enfermeira'),
+	(563454, 98180520056,'Guilherme Pereira','guilherme.pereira@outlook.com','Enfermeiro'),
+	(456353, 85078946071,'Josemar Costa','josemar.costa@outlook.com','Médico'),
+	(427351, 28877832037,'Flavia Sobreira','josemar.costa@outlook.com','Médica'),
+	(890783, 31578361028,'Matheus Yoshida','matheus.yoshida@outlook.com','Médico'),
+	(986421, 13871054003,'Karen Naomy','karen.naomy@outlook.com','Médica');
     
     
 
 -- Selecionar tabela Medico
-SELECT * FROM Medico;
+SELECT * FROM Funcionario;
 
  CREATE TABLE Cliente (
  idCliente int primary key auto_increment,
  CNPJ char(14),
  Nome varchar (120),
+ Telefone char (11),
  Email varchar (120)
 );
 
-insert into cliente (cnpj, nome, email)
+insert into cliente (cnpj, nome, telefone, email)
 values
-(31404808000168,'Fernando Duarte Brandão', 'fernando.brand@gmail.com.br'),
-(59813354000106,'Jorge Moll Filho','jorge_molif@gmail.com.br'),
-(96724115000106,'Dulce Pugliese de Godoy Bueno', 'dulcepug@gmail.com.br'),
-(96724115000106,'Candido Pinheiro Koren de Lima','candido.pinheiro@gmail.com.br');
+(31404808000168,'Fernando Duarte Brandão', 11993841210, 'fernando.brand@gmail.com.br'),
+(59813354000106,'Jorge Moll Filho', 11944604385, 'jorge_molif@gmail.com.br'),
+(96724115000106,'Dulce Pugliese de Godoy Bueno', 21967514907, 'dulcepug@gmail.com.br'),
+(96724115000106,'Candido Pinheiro Koren de Lima', 13956785321, 'candido.pinheiro@gmail.com.br');
 
 select * from cliente;
