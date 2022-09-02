@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora 2</title>
+</head>
+
+<body>
+    <h1>Simulador Financeiro</h1>
+    <br>
+    <p>Média de consultas por dia: <input type="text" id="consultas" placeholder="Insira aqui..."></p>
+
+    <p>Valor em média por consulta: <input type="text" id="valor_consulta" placeholder="Insira aqui..."></p>
+
+    <p>Quantos anos deseja estar com a SIT?: <input type="text" id="anos" placeholder="Insira aqui..."></p>
+
+
+    <button onclick="ganho()">Simule aqui!!!</button> 
+
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function ganho() {
+
+        var year = anos.value * 365;
+
+        var tempo = 15 * consultas.value 
+
+        var consulta_final = tempo / (15 * 0.80) 
+
+        var valor = consultas.value * valor_consulta.value 
+
+        var perc_consulta = ((consulta_final - consultas.value) / consultas.value) * 100
+
+        var valor_acresc = consulta_final * valor_consulta.value 
+
+        var percentual = ((valor_acresc - valor) / valor) * 100
+
+        
+
+
+        resultado.innerHTML = `<br> <i>Consiga Salvar Mais Vidas Com o TermoTech!</i> <br><br>
+        
+        Com o nosso projeto você fará ${consulta_final .toFixed(2)} consultas no dia, equivalente a (${perc_consulta .toFixed(2)}%) a mais de consultas.<br>
+        Em um Mês você fatura <b>R$${(30 * valor) .toFixed(2)}</b>. Com o nosso projeto, você poderá faturar <b>R$${(30 * valor_acresc) .toFixed(2)} (${percentual .toFixed(2)}%).</b> <br>
+        Com ${anos.value} ano(s) do nosso contrato você poderá faturar R$${(year * valor_acresc) .toFixed(2)}.`
+
+    }
+
+</script>
