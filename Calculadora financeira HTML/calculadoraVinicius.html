@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protótipo da calculadora financeira</title>
+</head>
+<body>
+  <h2>Calculadora Financeira.</h2>
+  Quantos doutores(as) atendendo aos consultórios, seu hospital possui? <input id="doutores" placeholder="Insira aqui..."><br>
+  Tempo consulta: <input id="tempo" placeholder="Insira aqui..."><br>
+  Valor consulta: <input id="valor" placeholder="Insira aqui..."><br>
+  Média de consultas de cada doutor(a) por dia: <input id="consulta" placeholder="Insira aqui..."><br><br>
+  <button onclick="resultado()">Calcule aqui.</button>
+  <div id="msg"></div>
+</body>
+</html>
+<script>
+  function resultado() {
+    var minutos= 0.3 * tempo.value;
+    var bla= (minutos * consulta.value)/ tempo.value;
+    var total= bla * valor.value;
+    var valorfinal= total * doutores.value;
+    msg.innerHTML= `Com o nosso projeto, você pode ter um lucro estimado de R$${valorfinal .toFixed(2)} por dia.`
+  }
+</script>
