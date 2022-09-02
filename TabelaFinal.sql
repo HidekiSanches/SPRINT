@@ -18,7 +18,7 @@ Genero varchar(40),
 constraint chkGenero check (Genero in ('Masculino','Feminino')),
 Peso FLOAT,
 Altura DOUBLE,
-Sintomas varchar(160)
+Sintomas varchar(160),
 Diagnostico varchar (40),
 Convenio varchar(40)
 );
