@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    <h1>SIMULADOR FINANCEIRO </h1> <br><br>
+    <p>Média quantidade de consultas por dia: <input type="text" id="ipt_qtdConsultas" placeholder="Insira aqui..."></p>
+
+    <p>Valor médio em reais (R$) por consulta: <input type="text" id="ipt_valorConsulta" placeholder="Insira aqui..."></p>
+
+    <p>Quantos anos deseja estar com a SIT?: <input type="text" id="ipt_anosSIT" placeholder="Insira aqui..."></p><br><br>
+
+    <button onclick="calcular()">Simule aqui!</button>
+
+    <div id="msg"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var qtdConsultas_dia = ipt_qtdConsultas.value;
+        var valorConsulta = ipt_valorConsulta.value;
+        var anosSIT = ipt_anosSIT.value;
+        var EcoPorConsulta = 15 * 0.8;
+        var tempoConsultas_dia = 15 * qtdConsultas_dia;
+        var qtdConsultasSIT = tempoConsultas_dia / EcoPorConsulta;
+        var porcentagemEco = (qtdConsultasSIT - qtdConsultas_dia) / qtdConsultas_dia * 100;
+        var faturamentoDia = qtdConsultas_dia * valorConsulta;
+        var faturamentoDiaSIT = qtdConsultasSIT * valorConsulta;
+        var faturamentoMes = faturamentoDia * 30;
+        var faturamentoMesSIT = faturamentoDiaSIT * 30;
+        var anoEmDia = anosSIT * 365;
+        var faturamentoAno = faturamentoDia * anoEmDia;
+        var faturamentoAnoSIT = faturamentoDiaSIT * anoEmDia;
+        var faturamentoLiquido = faturamentoAnoSIT - faturamentoAno;
+
+    
+        msg.innerHTML = `<br> <i>Consiga Salvar Mais Vidas Com o TermoTech!</i> <br><br>
+        
+        Com o nosso projeto você fará ${qtdConsultasSIT} consultas no dia, equivalente a <b>${porcentagemEco}%</b> a mais de consultas.<br>
+        Em um Mês você fatura <b>R$${faturamentoMes.toFixed(2)}</b>. Com o nosso projeto, você poderá faturar <b>R$${faturamentoMesSIT.toFixed(2)}.</b> <br>
+        Trabalhando junto com a SIT Company por ${anosSIT} ano(s) você deixa de faturar <b>R$${faturamentoAno.toFixed(2)}</b> e passa a faturar <b>R$${faturamentoAnoSIT.toFixed(2)}</b>, 
+        com o valor liquído de <b>R$${faturamentoLiquido.toFixed(2)}</b>.` 
+
+    }
+</script>
