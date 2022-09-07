@@ -29,17 +29,17 @@
 <script>
     function ganho() {
 
-        var year = anos.value * 365;
+        var year = anos.value * 365; // Calculo para anos de contrato
 
-        var tempo = 15 * consultas.value 
+        var tempo = 15 * consultas.value // Calculo para tempo total de consultas por dia 
 
-        var consulta_final = tempo / (15 * 0.80) 
+        var consulta_final = tempo / (15 * 0.80) // Calculo de consultas com a termotech
 
-        var valor = consultas.value * valor_consulta.value 
+        var valor = consultas.value * valor_consulta.value // valor da consulta 
 
-        var perc_consulta = ((consulta_final - consultas.value) / consultas.value) * 100
+        var perc_consulta = ((consulta_final - consultas.value) / consultas.value) * 100 
 
-        var valor_acresc = consulta_final * valor_consulta.value 
+        var valor_acresc = consulta_final * valor_consulta.value // valor da consulta com Termotech
 
         var percentual = ((valor_acresc - valor) / valor) * 100
 

@@ -26,23 +26,18 @@ Convenio varchar(40)
 -- Inserir dados na tabela
 
 INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas, Diagnostico, Convenio) VALUES
- (48867849345, 'Paulo', '.com', '2002-10-10', 'Masculino', 80, 1.75,'Calafrio, Dor de cabeça e Fadiga', 'Pneumonia', 'UNIMED');
+ (48867849345, 'Paulo Neves', 'paulo.neves@outlook.com', '2002-10-10', 'Masculino', 80, 1.75,'Calafrio, Dor de cabeça e Fadiga', 'Pneumonia', 'UNIMED');
  
- insert into paciente (cpf, nome, email, dtnasc, genero, peso, altura, sintomas, diagnostico, convenio)
+ insert into Paciente (CPF, Nome, Email, DtNasc, Genero, Peso, Altura, Sintomas, Diagnostico, Convenio)
  values
- (69870164021, 'Roberto', '.com', '2000-02-28', 'Masculino', 85, 1.79, 'Náusea e Secreção', 'Sinusite','UNIMED'),
- (31475697058, 'Milena','.com', '1984-09-04', 'Feminino', 64, 1.65, 'Tremores e cansaço excessivo', 'Hipotermia', 'AMIL'),
- (96254394049, 'Fernanda','.com', '1978-03-30', 'Feminino', 59, 1.60, 'Desconforto Abdominal e Gases', 'Gastrite', 'Notredame Intermédica'),
- (04287699009, 'Leonardo','.com', '1988-07-22', 'Masculino', 72, 1.76, 'Temperatura Corporal de 34.5°C', 'Hipotermia', 'UNIMED'),
- (04287699009, 'Marcos','.com', '1988-07-12', 'Masculino', 67, 1.69, 'Dor de cabeça e vomito', 'Gripe', 'AMIL'),
- (04287699009, 'Kaylane','.com', '1995-08-18', 'Feminino', 59, 1.58, 'Febre e manchas avermelhadas', 'Dengue', 'AMIL'),
- (04287699009, 'David','.com', '2003-04-03', 'Masculino', 67, 1.72, 'Temperatura Corporal de 34°C, fraqueza e tremores', 'Hipotermia', 'Notredame Intermédica');
+ (69870164021, 'Roberto Gomes', 'roberto.gomes@gmail.com', '2000-02-28', 'Masculino', 85, 1.79, 'Náusea e Secreção', 'Sinusite','UNIMED'),
+ (31475697058, 'Milena Santos','milena.santos@outlook.com', '1984-09-04', 'Feminino', 64, 1.65, 'Tremores e cansaço excessivo', 'Hipotermia', 'AMIL'),
+ (96254394049, 'Fernanda Pires','fernanda.pires@gmail.com', '1978-03-30', 'Feminino', 59, 1.60, 'Desconforto Abdominal e Gases', 'Gastrite', 'Notredame Intermédica'),
+ (04287699089, 'Leonardo Silva','leonardo.silva@gmail.com', '1988-07-22', 'Masculino', 72, 1.76, 'Temperatura Corporal de 34.5°C', 'Hipotermia', 'UNIMED'),
+ (04287699099, 'Marcos Diaz','marcos.diaz@gmail.com', '1988-07-12', 'Masculino', 67, 1.69, 'Dor de cabeça e vomito', 'Gripe', 'AMIL'),
+ (04287699889, 'Kaylane Souza','kaylane.souza@outlook.com', '1995-08-18', 'Feminino', 59, 1.58, 'Febre e manchas avermelhadas', 'Dengue', 'AMIL'),
+ (04287699459, 'David Melo','david.melo@outlook.com', '2003-04-03', 'Masculino', 67, 1.72, 'Temperatura Corporal de 34°C, fraqueza e tremores', 'Hipotermia', 'Notredame Intermédica');
   
- 
-
- 
- 
- 
  -- Selecionar tabela
  
  SELECT * FROM Paciente;
@@ -56,7 +51,7 @@ INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas,
  Temp20min DOUBLE,
  Temp25min DOUBLE
  );
- 
+
  INSERT INTO Temperatura (Temp5min, Temp10min, Temp15min, Temp20min, Temp25min) Values
 		(20.8, 22.5, 25.0, 27.0, 28),
         (20.5, 22.7, 24.9, 24.0, 23.2),
@@ -68,6 +63,7 @@ INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas,
  -- Selecionar tabela  Temperatura
  
  SELECT * FROM Temperatura;
+ SELECT concat('A temperatura do paciente esta em ', Temp25min, ' aos 25 minutos de cirurgia.') as Temperatura FROM Temperatura;
  
  -- Criar tabela Medico
  
