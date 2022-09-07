@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Simulador Financeiro</h1>
+    <p>Inserir a quantidade de consultas diárias: <input id="qtd_consulta" placeholder="Insira aqui"> </p>
+    <p>Inserir o valor das consultas: <input id="valor_consulta" placeholder="Insira aqui"> </p>
+    <p>Inserir o tempo médio de cada consulta: <input id="tempo" placeholder="Insira aqui"> </p>
+    <p>Inserir quantos médicos atendem diariamente: <input id="qtd_medicos" placeholder="Insira aqui"> </p>
+
+    <button onclick="calcular()">Simule aqui!</button>
+    
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        var tempo= 15* qtd_consultas.value
+        var final= tempo.value / (15*0,8) 
+        var valor= qtd_consultas.value*valor_consulta.value
+        div_msg.innerHTML = `Com o nosso projeto você fará ${final .toFixed(2)} consultas no dia a mais. Faturando R$${30*valor .toFixed(2)} em um mês.`
+
+    }
+</script>
