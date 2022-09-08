@@ -83,7 +83,7 @@ INSERT INTO Paciente (CPF, Nome, Email , DtNasc, Genero, Peso, Altura, Sintomas,
  -- Criar tabela Medico
  
  CREATE TABLE Funcionario (
- idMedico int primary key auto_increment,
+ idFuncionario int primary key auto_increment,
  CRM char(6),
  CPF char(11),
  Nome varchar (120),
